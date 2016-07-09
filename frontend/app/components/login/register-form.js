@@ -15,7 +15,7 @@ export default Ember.Component.extend({
         const organizationName = data.included[0].attributes.name;
         this.get('store').pushPayload(data);
         toastr.success('Welcome to LtzChat');
-        this.get('router').transitionTo('organization', organizationName);
+        this.get('router').transitionTo('organization', [organizationName]);
       });
   }
 });

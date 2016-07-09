@@ -5,7 +5,7 @@ module Api
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
           session[:user_id] = user.id
-          head :ok
+          render json: json_user(user)
         else
           head :not_found
         end
@@ -25,9 +25,7 @@ module Api
         organization = result[1]
 
         if user.persisted? && organization.persisted?
-          json = JSONAPI::ResourceSerializer.new(Api::V1::UserResource, include: ['organization'])
-                     .serialize_to_hash(Api::V1::UserResource.new(user, nil))
-          render json: json
+          render json: json_user(user)
         else
           render json: {errors: {user: user.errors, organization: organization.errors}}
         end
@@ -60,6 +58,11 @@ module Api
         end
 
         [user, organization]
+      end
+
+      def json_user(user)
+        JSONAPI::ResourceSerializer.new(Api::V1::UserResource, include: ['organization'])
+            .serialize_to_hash(Api::V1::UserResource.new(user, nil))
       end
 
       private :user_register_params, :passwords_match?, :create_user_and_organization
