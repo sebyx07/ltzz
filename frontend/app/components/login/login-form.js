@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+  toastr: window.toastr,
+  router: Ember.inject.service('-routing'),
   tagName: 'form',
   classNames: ['m-t-md'],
 
@@ -11,8 +13,13 @@ export default Ember.Component.extend({
   },
 
   login(username, password){
+    const {toastr, router} = this.getProperties(['toastr', 'router']);
+
     Ember.$.post('/api/v1/session', {username: username, password: password})
-      .done(() => alert('ok'))
-      .fail(() => alert('bad'))
+      .done(() => {
+        toastr.success('Welcome Back!');
+        router.transitionTo('application');
+      })
+      .fail(() => toastr.error('Invalid username or password'));
   }
 });
