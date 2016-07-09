@@ -5,9 +5,16 @@ Rails.application.routes.draw do
         collection do
           get 'current'
         end
+
+        member do
+          post 'upload-avatar', to: :upload_avatar
+        end
       end
 
-      resource :sessions, only: [:create, :destroy]
+      namespace :session do
+        post '', action: :create
+        delete '', action: :destroy
+      end
     end
   end
 end
