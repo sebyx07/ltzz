@@ -12,6 +12,7 @@ Rails.application.routes.draw do
       end
 
       namespace :session do
+        post 'register', action: :register
         post '', action: :create
         delete '', action: :destroy
       end
