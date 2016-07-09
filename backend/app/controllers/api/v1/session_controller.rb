@@ -4,7 +4,7 @@ module Api
       def create
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
-          session[:user_id] = user.id
+          login(user)
           render json: json_user(user)
         else
           head :not_found
@@ -25,6 +25,7 @@ module Api
         organization = result[1]
 
         if user.persisted? && organization.persisted?
+          login(user)
           render json: json_user(user)
         else
           render json: {errors: {user: user.errors, organization: organization.errors}}
@@ -58,6 +59,10 @@ module Api
         end
 
         [user, organization]
+      end
+
+      def login(user)
+        cookies.signed[:user_id] = user.id
       end
 
       def json_user(user)
