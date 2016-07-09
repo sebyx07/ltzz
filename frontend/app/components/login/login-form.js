@@ -7,6 +7,12 @@ export default Ember.Component.extend({
   submit(e){
     e.preventDefault();
     const {username, password} = this.getProperties(['username', 'password']);
-    alert(username);
+    this.login(username, password);
+  },
+
+  login(username, password){
+    Ember.$.post('/api/v1/session', {username: username, password: password})
+      .done(() => alert('ok'))
+      .fail(() => alert('bad'))
   }
 });
