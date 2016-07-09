@@ -16,8 +16,8 @@ export default Ember.Service.extend({
             request.setRequestHeader('Content-Type', 'application/vnd.api+json');
           })
         }).done((data) => {
-          const user = this.get('store').pushPayload(data);
           debugger;
+          const user = this.get('store').push(data);
           this.set('user', user);
           resolve(user);
         }).fail((data) => {

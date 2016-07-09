@@ -4,7 +4,7 @@ module Api
       include JSONAPI::ActsAsResourceController
 
       def current_user
-        User.find_by(id: cookies.signed)
+        User.find_by(id: cookies.signed[:user_id])
       end
 
       protected :current_user

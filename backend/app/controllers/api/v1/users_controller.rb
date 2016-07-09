@@ -6,6 +6,8 @@ module Api
         if user
           render json: JSONAPI::ResourceSerializer.new(Api::V1::UserResource, include: ['organization'])
               .serialize_to_hash(Api::V1::UserResource.new(user, nil))
+        else
+          head :not_found
         end
       end
     end
