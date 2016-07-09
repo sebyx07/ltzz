@@ -1,0 +1,13 @@
+.page--homepage-nav-bar{
+  background: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+
+  a{
+    color: #fff !important;
+
+    &.navbar-brand{
+      font-size: 3em;
+    }
+  }
+}
