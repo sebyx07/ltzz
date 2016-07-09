@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160709164138) do
+ActiveRecord::Schema.define(version: 20160709171519) do
+
+  create_table "invitations", id: nil, force: :cascade do |t|
+    t.integer  "user_id"
+    t.boolean  "used"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["id"], name: "sqlite_autoindex_invitations_1", unique: true
+    t.index ["user_id"], name: "index_invitations_on_user_id"
+  end
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name"

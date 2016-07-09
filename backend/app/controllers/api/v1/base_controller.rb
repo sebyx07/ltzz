@@ -1,3 +1,7 @@
-class Api::V1::BaseController < ApplicationController
-  include JSONAPI::ActsAsResourceController
+module Api
+  module V1
+    class BaseController < ApplicationController
+      include JSONAPI::ActsAsResourceController
+    end
+  end
 end
