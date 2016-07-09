@@ -16,12 +16,12 @@ export default Ember.Service.extend({
             request.setRequestHeader('Content-Type', 'application/vnd.api+json');
           })
         }).done((data) => {
-          debugger;
-          const user = this.get('store').push(data);
+          this.get('store').pushPayload(data);
+          const user = this.get('store').peekRecord('user', data.data.id);
           this.set('user', user);
           resolve(user);
         }).fail((data) => {
-          debugger;
+          reject(data)
         });
       }
     });

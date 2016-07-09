@@ -11,8 +11,14 @@
     {{/link-to}}
   </div>
   <div id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="">Organization</a></li>
-    </ul>
+    {{#if user}}
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          {{#link-to "organization" user.organization.name}}
+            {{user.organization.name}}
+          {{/link-to}}
+        </li>
+      </ul>
+    {{/if}}
   </div><!--/.nav-collapse -->
 </div>

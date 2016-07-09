@@ -4,9 +4,10 @@ export default Ember.Route.extend({
   currentUser: Ember.inject.service(),
 
   model(){
-    this.get('currentUser').getUser();
     return Ember.RSVP.hash({
-      user: []
+      user: this.get('currentUser').getUser().catch(() => {
+        return undefined;
+      })
     })
   }
 });
