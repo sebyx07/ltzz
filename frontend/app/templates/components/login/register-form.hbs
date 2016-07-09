@@ -1,14 +1,18 @@
 <div class="form-group">
-  <input type="text" class="form-control" placeholder="Name" required>
+  {{input class="form-control" value=name placeholder="Name" required=true}}
 </div>
 <div class="form-group">
-  <input type="email" class="form-control" placeholder="Email" required>
+  {{input class="form-control" value=username placeholder="Username" required=true}}
 </div>
 <div class="form-group">
-  <input type="password" class="form-control" placeholder="Password" required>
+  {{input type="password" class="form-control" value=password placeholder="Password" required=true}}
+</div>
+<div class="form-group">
+  {{input type="password" class="form-control" value=name placeholder="Confirm Password" required=true}}
 </div>
 <label>
-  <input type="checkbox"> Agree the terms and policy
+  {{input type="checkbox" checked=tos}}
+  Agree the terms and policy
 </label>
 <button type="submit" class="btn btn-success btn-block m-t-xs">Submit</button>
 <p class="text-center m-t-xs text-sm">Already have an account?</p>
