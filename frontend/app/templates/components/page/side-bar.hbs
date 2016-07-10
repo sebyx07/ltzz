@@ -1,7 +1,11 @@
 <div class="page-sidebar-inner slimscroll">
   <ul class="menu accordion-menu">
     {{#each organization.users as |user|}}
-      <li>{{user.username}}</li>
+      <li>
+        {{#link-to "organization.user-conversation" user.username}}
+          {{user.username}}
+        {{/link-to}}
+      </li>
     {{/each}}
   </ul>
 </div>
