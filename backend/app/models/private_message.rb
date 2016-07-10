@@ -1,5 +1,6 @@
 class PrivateMessage
   include Mongoid::Document
+  include Mongoid::Timestamps::Created
   include ActiveMongoid::Associations
 
   field :receiver_seen, type: Boolean

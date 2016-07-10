@@ -1,4 +1,8 @@
-{{#each model.privateMessages as |m|}}
-  {{m.id}}
-{{/each}}
+<div class="col-md-12">
+  {{#conversation/messages-list}}
+    {{#each model.privateMessages as |m|}}
+      {{conversation/message-item message=m}}
+    {{/each}}
+  {{/conversation/messages-list}}
+</div>
 {{outlet}}

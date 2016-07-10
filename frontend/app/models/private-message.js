@@ -4,5 +4,6 @@ export default DS.Model.extend({
   receiver: DS.belongsTo('user'),
   sender: DS.belongsTo('user'),
   payload: DS.attr('string'),
-  receiverSeen: DS.attr('boolean')
+  receiverSeen: DS.attr('boolean'),
+  createdAt: DS.attr('moment')
 });
