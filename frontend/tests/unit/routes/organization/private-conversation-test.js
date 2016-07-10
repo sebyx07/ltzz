@@ -6,8 +6,8 @@ import {
 } from 'ember-mocha';
 
 describeModule(
-  'route:organization/user-conversation',
-  'OrganizationUserConversationRoute',
+  'route:organization/private-conversation',
+  'OrganizationPrivateConversationRoute',
   {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']

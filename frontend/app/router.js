@@ -11,7 +11,7 @@ Router.map(function() {
   this.route('login');
   this.route('register');
   this.route('organization', {path: '/:name'}, function() {
-    this.route('user-conversation', {path: '/:userId'});
+    this.route('private-conversation', {path: '/:username'});
   });
 });
 
