@@ -11,6 +11,8 @@ Rails.application.routes.draw do
         end
       end
 
+      jsonapi_resources :organizations
+
       namespace :session do
         post 'register', action: :register
         post '', action: :create
