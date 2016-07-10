@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/mongodb/mongoid
+  revision: f539cc6acd284bc87b64f6f043f74897d72387ad
+  specs:
+    mongoid (6.0.0)
+      activemodel (~> 5.0)
+      mongo (~> 2.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -40,6 +48,7 @@ GEM
       tzinfo (~> 1.1)
     arel (7.0.0)
     bcrypt (3.1.11)
+    bson (4.1.1)
     builder (3.2.2)
     byebug (9.0.5)
     concurrent-ruby (1.0.2)
@@ -70,6 +79,8 @@ GEM
     mime-types-data (3.2016.0521)
     mini_portile2 (2.1.0)
     minitest (5.9.0)
+    mongo (2.2.5)
+      bson (~> 4.0)
     nio4r (1.2.1)
     nokogiri (1.6.8)
       mini_portile2 (~> 2.1.0)
@@ -152,6 +163,7 @@ DEPENDENCIES
   factory_girl_rails
   jsonapi-resources (~> 0.7.1.beta2)
   listen (~> 3.0.5)
+  mongoid!
   pg
   puma
   rails
