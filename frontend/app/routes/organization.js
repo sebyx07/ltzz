@@ -6,7 +6,10 @@ export default Ember.Route.extend({
   model(params){
     return Ember.RSVP.hash({
       user: this.get('currentUser').getUser(),
-      organization: this.store.queryRecord('organization', {filter: {name: params.name}})
+      organization: this.store.query('organization', {filter: {name: params.name}, include: 'users'})
+        .then((organizations) =>{
+          return organizations.get('firstObject');
+      })
     });
   }
 });
