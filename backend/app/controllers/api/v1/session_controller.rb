@@ -33,7 +33,7 @@ module Api
       end
 
       def destroy
-        reset_session
+        cookies.delete(:user_id)
         head :ok
       end
 
