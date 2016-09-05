@@ -21,7 +21,7 @@ export default Ember.Service.extend({
           this.set('user', user);
           resolve(user);
         }).fail((data) => {
-          reject(data)
+          reject(data);
         });
       }
     });

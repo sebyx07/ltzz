@@ -1,5 +1,9 @@
+{{#if user}}
+    <p>Good Afternoon {{user.username}}</p>
+{{else}}
 <p>Your team already uses Ltz?
   {{#link-to "login"}}
     Sign in!
   {{/link-to}}
 </p>
+{{/if}}
