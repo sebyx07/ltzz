@@ -8,6 +8,6 @@ export default Ember.Route.extend({
       user: this.get('currentUser').getUser().catch(() => {
         return undefined;
       })
-    })
+    });
   }
 });
