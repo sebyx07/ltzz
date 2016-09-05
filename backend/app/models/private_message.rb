@@ -1,11 +1,4 @@
-class PrivateMessage
-  include Mongoid::Document
-  include Mongoid::Timestamps::Created
-  include ActiveMongoid::Associations
-
-  field :receiver_seen, type: Boolean
-  field :payload, type: String
-
-  belongs_to_record :sender, class_name: 'User'
-  belongs_to_record :receiver, class_name: 'User'
+class PrivateMessage < ApplicationRecord
+  belongs_to :sender, foreign_key: :sender_id, class_name: 'User'
+  belongs_to :receiver, foreign_key: :receiver_id, class_name: 'User'
 end

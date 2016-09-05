@@ -25,7 +25,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'jsonapi-resources', '~> 0.7.1.beta2'
-
-gem 'mongoid', :git => 'https://github.com/mongodb/mongoid'
-
-gem 'active_mongoid'
