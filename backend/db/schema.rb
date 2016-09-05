@@ -10,11 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160905172917) do
+ActiveRecord::Schema.define(version: 20160905175159) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+
+  create_table "group_message_notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "group_id"
+    t.integer  "not_seen_count"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+    t.index ["group_id"], name: "index_group_message_notifications_on_group_id", using: :btree
+    t.index ["user_id"], name: "index_group_message_notifications_on_user_id", using: :btree
+  end
+
+  create_table "group_messages", force: :cascade do |t|
+    t.text     "payload"
+    t.integer  "group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "sender_id"
+    t.index ["group_id"], name: "index_group_messages_on_group_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "organization_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["organization_id"], name: "index_groups_on_organization_id", using: :btree
+  end
 
   create_table "invitations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer  "user_id"
@@ -49,6 +76,10 @@ ActiveRecord::Schema.define(version: 20160905172917) do
     t.index ["organization_id"], name: "index_users_on_organization_id", using: :btree
   end
 
+  add_foreign_key "group_message_notifications", "groups"
+  add_foreign_key "group_message_notifications", "users"
+  add_foreign_key "group_messages", "groups"
+  add_foreign_key "groups", "organizations"
   add_foreign_key "invitations", "users"
   add_foreign_key "users", "organizations"
 end
