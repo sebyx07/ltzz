@@ -1,4 +1,4 @@
-organization = FactoryGirl.create(:organization)
+organization = FactoryGirl.create(:organization, name: 'LtzOrganization')
 user_1 = FactoryGirl.create(:user, username: 'user1', password: '1234', organization: organization)
 user_2 = FactoryGirl.create(:user, username: 'user2', password: '1234', organization: organization)
 
