@@ -13,6 +13,7 @@ Router.map(function() {
   this.route('organization', {path: '/:name'}, function() {
     this.route('private-conversation', {path: '/:username'});
   });
+  this.route('users');
 });
 
 export default Router;
