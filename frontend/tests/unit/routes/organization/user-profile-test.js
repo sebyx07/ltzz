@@ -6,8 +6,8 @@ import {
 } from 'ember-mocha';
 
 describeModule(
-  'route:user-profile',
-  'UserProfileRoute',
+  'route:organization/user-profile',
+  'OrganizationUserProfileRoute',
   {
     // Specify the other units that are required for this test.
     // needs: ['controller:foo']

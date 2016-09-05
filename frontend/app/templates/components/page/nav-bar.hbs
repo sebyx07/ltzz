@@ -5,7 +5,9 @@
     </a>
   </div>
   <div class="logo-box">
-    <a href="/" class="logo-text"><span>LtzChat</span></a>
+      {{#link-to "homepage" class="logo-text"}}
+          <span>LtzChat</span>
+      {{/link-to}}
   </div><!-- Logo Box -->
   <div class="topmenu-outer">
     <div class="top-menu">
@@ -21,7 +23,13 @@
             <img class="img-circle avatar" src="assets/images/avatar1.png" width="40" height="40" alt="">
           </a>
           <ul class="dropdown-menu dropdown-list" role="menu">
-            <li role="presentation"><a href="profile.html"><i class="fa fa-user"></i>Profile</a></li>
+            <li role="presentation">
+
+                {{#link-to "organization.user-profile" user.username class="fa fa-user"}}
+                    <i>Profile</i>
+                {{/link-to}}
+
+            </li>
             <li role="presentation">
               <a href="" {{action "logout"}}>
                 <i class="fa fa-sign-out m-r-xs"></i>Log out
