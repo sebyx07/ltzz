@@ -12,8 +12,11 @@ Rails.application.routes.draw do
         end
       end
 
-      jsonapi_resources :organizations
-      jsonapi_resources :private_messages
+      [
+          :organizations, :private_messages, :groups, :group_messages, :group_message_notifications
+      ].each do |res|
+        jsonapi_resources res
+      end
 
       namespace :session do
         post 'register', action: :register
